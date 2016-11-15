@@ -24,7 +24,16 @@ template <typename T>
 std::vector<T> generate_geometric_samples(std::size_t sample_number,
                                           T common_ratio) {
   static_assert(std::is_arithmetic<T>::value, "not arithmetic type");
+  
   std::vector<T> v(sample_number);
+  
+  T temp = common_ratio;
+  
+  for (auto& i : v){
+   i=common_ratio;
+   temp*= common_ratio;
+  }
+  
   return v;
 }
 
